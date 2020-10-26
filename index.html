@@ -3,55 +3,31 @@
 <head>
   <title>Rock Paper Sissors</title>
   <meta charset="UTF-8"/>
+  <link href="css/reset.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/main.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
-  <script>
-    game();
-    
-    //Computer makes a choice and returns the result
-    function compChoose() {
-        let choices = ["rock", "paper", "sissors"];
-        let compChoice = Math.floor((Math.random() * 3));
-        return choices[compChoice];
-    }
-
-    //User makes a choice and returns the result
-    function userChoose() {
-        let userChoice;
-        let choices = ["rock", "paper", "sissors"];
-        while (!choices.includes(userChoice)) {
-            userChoice = prompt("Rock, paper, or sissors?").toLowerCase();
-        }
-        return userChoice;
-    }
-
-    //Determine the result of a single round
-    function gameRound(userChoice, compChoice) {
-        console.log("User: " + userChoice)
-        console.log("Comp: " + compChoice)
-        if (compChoice == userChoice) return("Tie")
-        else if (userChoice == "rock" && compChoice == "sissors" || 
-                userChoice == "paper" && compChoice == "rock" || 
-                userChoice == "sissors" && compChoice == "paper") {
-                    return("Win");
-        } else return("Lose");
-    }
-
-    //Play 5 rounds and return the game results
-    function game() {
-        let userWins = 0;
-        let compWins = 0;
-        for (let i = 0; i < 5; i++) {
-            let roundResult = gameRound(userChoose() , compChoose());
-            if (roundResult == "Win") userWins++
-            else if (roundResult == "Lose") compWins++
-        }
-        console.log("You won "+ userWins + " rounds.");
-        console.log("Computer won "+ compWins + " rounds.");
-        if (userWins > compWins) return("You win!")
-        else if (userWins < compWins) return("You lost!")
-        else return("You tied!")
-    }
-  </script>
+  <div id="game">
+    <div id = "header">
+      <div id = "title">Rock, Paper, Scissors</div>
+      <div id = "rounds"></div>
+    </div>
+    <div id="scores">
+      <p id="userScore"></p>
+      <p id="compScore"></p>
+    </div>
+      <div id="choices">
+        <button id="rock" onclick="playRound('rock')">Rock</button>
+        <button id="paper" onclick="playRound('paper')">Paper</button>
+        <button id="scissors" onclick="playRound('scissors')">Scissors</button>
+      </div>
+      <div id="status"></div>
+      <div id="selectRounds">
+        <button onclick="initGame(3)">Best of 3</button>
+        <button onclick="initGame(5)">Best of 5</button>
+        <button onclick="initGame(7)">Best of 7</button>
+      </div>
+  </div>
+  <script src="js/rps-game.js"></script>
 </body>
 </html>

@@ -1,3 +1,3 @@
-Console based rock-paper-sissors game.
-There are 5 rounds.
-See the game results in the console.
+Web based rock-paper-scissors game.
+
+My first ever interactive web page.

@@ -1,0 +1,16 @@
+#title {
+    margin: auto;
+    width: 90%;
+    background: #2169ad;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+#rounds {
+    font-size: 19px;
+    text-align: center;
+}
+
+p {
+    color: red
+}
